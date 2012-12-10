@@ -114,7 +114,7 @@ abstract class Controller_Base extends Controller{
 		{
 			$this->_layout = $layout;
 		}
-		$content_view = View::factory($view_file, $data);
+		$content_view = View::factory($view_file, $data)->render();
 		$this->_view = View::factory($this->_layout, array('content' => $content_view));
 		return $this->_view;
 	}

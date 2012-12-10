@@ -69,7 +69,7 @@ class View_Block{
 
 	private function _ensure_closure($closure)
 	{
-		if(is_array($closure) OR is_string($closure) OR !is_callable($closure))
+		if(!is_callable($closure))
 		{
 			throw new InvalidArgumentException("Block content expected a closure, given (" . gettype($closure) . ")");
 		}

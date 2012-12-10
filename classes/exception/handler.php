@@ -12,9 +12,11 @@ class Exception_Handler{
 			switch (get_class($e))
 			{
 				case 'HTTP_Exception_404':
-					$response = new Response;
-					$response->status(404);
-					$view = new View('error/404');
+					//echo HTML::render_action('404', 'error');
+					$request = Request::current();
+					$response = $request->create_response();
+					$response->status($e->getCode());
+					$view = View::factory('error/404');
 					$view->message = $e->getMessage();
 					$view->title = 'File Not Found';
 					echo $response->body($view)->send_headers()->body();
