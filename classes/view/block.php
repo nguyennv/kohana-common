@@ -22,7 +22,7 @@ class View_Block{
 		}
 	}
 	
-	public function render($closure = NULL)
+	public function content($closure = NULL)
 	{
 		if(NULL !== $closure)
 		{
@@ -56,7 +56,7 @@ class View_Block{
 	{
 		try
 		{
-			return $this->render();
+			return $this->content();
 		}
 		catch (Exception $e)
 		{
